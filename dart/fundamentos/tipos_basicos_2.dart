@@ -1,11 +1,9 @@
-
 /*
     - List
     - Set
     - Map
  */
 main() {
-
   // List
   var aprovados = ['Ana', 'Carlos', 'Daniel', 'Rafael'];
   aprovados.add('Daniel');
