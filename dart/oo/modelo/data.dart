@@ -14,7 +14,7 @@ class Data {
   // Named Constructors
   Data.com({this.dia = 1, this.mes = 1, this.ano = 1970});
   Data.ultimoDiaDoAno(this.ano) {
-    dia = 31;
+    dia = 31; 
     mes = 12;
   }
 
