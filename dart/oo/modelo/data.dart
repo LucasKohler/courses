@@ -1,7 +1,7 @@
 class Data {
-  int dia;
-  int mes;
-  int ano;
+  int? dia;
+  int? mes;
+  int? ano;
 
   // Data(int dia, int mes, int ano) {
   //   this.dia = dia;
