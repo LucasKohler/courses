@@ -1,0 +1,104 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+</head>
+<body>
+  <label for="input-24">Planets and Satellites</label>
+  <div class="file-loading">
+    <input id="input-24" name="input24[]" type="file" multiple>
+  </div>
+</body>
+<script>
+
+$(document).ready(function() {
+    var url1 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/631px-FullMoon2010.jpg';
+    var url2 = 'http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Earth_Eastern_Hemisphere.jpg/600px-Earth_Eastern_Hemisphere.jpg';
+    $("#input-24").fileinput({
+ 
+	theme: "explorer-fas",
+	language: 'pt-BR',
+	showBrowse:true,
+	showUpload:true,
+	showCancel:true,
+	showRemove:true,
+	showCaption: true,
+	showClose: true,
+	showDelete: true,
+    uploadUrl: "/file-upload-batch/2",
+    minFileCount: 2,
+    maxFileCount: 5,
+    maxFiledescription: "This is a representative placeholder description for this image.", size: 10000,
+    removeFromPreviewOnError: true,
+    overwriteInitial: false,
+    previewFileIcon: '<i class="fas fa-file"></i>',
+    initialPreview: [
+        // IMAGE DATA
+       'https://picsum.photos/id/1071/1920/1080',
+        // IMAGE RAW MARKUP
+        '<img src="https://picsum.photos/id/1075/1920/1080" class="kv-preview-data file-preview-image">',
+        // TEXT DATA
+        'https://kartik-v.github.io/bootstrap-fileinput-samples/samples/SampleTextFile_10kb.txt',
+        // PDF DATA
+        'https://kartik-v.github.io/bootstrap-fileinput-samples/samples/pdf-sample.pdf',
+        // VIDEO DATA
+        "https://kartik-v.github.io/bootstrap-fileinput-samples/samples/small.mp4"
+    ],
+    initialPreviewAsData: false, // defaults markup  
+    initialPreviewConfig: [
+        {caption: "Image 11.jpg", description: "This is a representative placeholder description for this image.", size: 762980, url: "/site/file-delete", key: 1071},
+        {previewAsData: false, description: "This is a representative placeholder description for this image.", size: 823782, caption: "Image 13.jpg", url: "/site/file-delete", key: 1075}, 
+        {caption: "Lorem Ipsum.txt", type: "text", description: "This is a representative placeholder description for this image.", size: 1430, url: "/site/file-delete", key: 12}, 
+        {type: "pdf", description: "This is a representative placeholder description for this image.", size: 8000, caption: "PDF Sample.pdf", url: "/site/file-delete", key: 14}, 
+        {type: "video", description: "This is a representative placeholder description for this image.", size: 375000, filetype: "video/mp4", caption: "Krajee Sample.mp4", url: "/site/file-delete", key: 15} 
+    ],
+    uploadExtraData: {
+        img_key: "1000",
+        img_keywords: "happy, nature"
+    },
+    preferIconicPreview: true, // this will force thumbnails to display icons for following file extensions
+         previewFileIconSettings: { // configure your icon file extensions
+        'doc': '<i class="fas fa-file-word text-primary"></i>',
+        'xls': '<i class="fas fa-file-excel text-success"></i>',
+        'ppt': '<i class="fas fa-file-powerpoint text-danger"></i>',
+        'pdf': '<i class="fas fa-file-pdf text-danger"></i>',
+        'zip': '<i class="fas fa-file-archive text-muted"></i>',
+        'htm': '<i class="fas fa-file-code text-info"></i>',
+        'txt': '<i class="fas fa-file-alt text-info"></i>',
+        'mov': '<i class="fas fa-file-video text-warning"></i>',
+        'mp3': '<i class="fas fa-file-audio text-warning"></i>',
+        // note for these file types below no extension determination logic 
+        // has been configured (the keys itself will be used as extensions)
+        'jpg': '<i class="fas fa-file-image text-danger"></i>', 
+        'gif': '<i class="fas fa-file-image text-muted"></i>', 
+        'png': '<i class="fas fa-file-image text-primary"></i>'    
+    },
+    previewFileExtSettings: { // configure the logic for determining icon file extensions
+        'doc': function(ext) {
+            return ext.match(/(doc|docx)$/i);
+        },
+        'xls': function(ext) {
+            return ext.match(/(xls|xlsx)$/i);
+        },
+        'ppt': function(ext) {
+            return ext.match(/(ppt|pptx)$/i);
+        },
+        'zip': function(ext) {
+            return ext.match(/(zip|rar|tar|gzip|gz|7z)$/i);
+        },
+        'htm': function(ext) {
+            return ext.match(/(htm|html)$/i);
+        },
+        'txt': function(ext) {
+            return ext.match(/(txt|ini|csv|java|php|js|css)$/i);
+        },
+        'mov': function(ext) {
+            return ext.match(/(avi|mpg|mkv|mov|mp4|3gp|webm|wmv)$/i);
+        },
+        'mp3': function(ext) {
+            return ext.match(/(mp3|wav)$/i);
+        }
+    }
+		
+    });
+});
+</script>
