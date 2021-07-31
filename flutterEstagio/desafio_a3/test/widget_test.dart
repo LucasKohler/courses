@@ -36,16 +36,16 @@ void main() {
     const button2Key= Key('button2');
     const textButton2Key = Key('textButton2');
 
-    var button1Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
+    var button2Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
     var button2 = find.byKey(button2Key);
 
-    expect(button1Text.data, '0');
+    expect(button2Text.data, '0');
 
     await tester.tap(button2);
     await tester.pump();
 
-    button1Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
+    button2Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
 
-    expect(button1Text.data, '1');
+    expect(button2Text.data, '1');
   });
 }
