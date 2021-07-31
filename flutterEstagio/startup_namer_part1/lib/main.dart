@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'startup name generator',
       home: RandomWords(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
