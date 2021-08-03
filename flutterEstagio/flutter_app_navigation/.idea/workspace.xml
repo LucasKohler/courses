@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8630b00b-d7d8-4d6e-a752-ee0f08ebc739" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/test/widget_test.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ITAcademy13" />
+  </component>
+  <component name="ProjectId" id="1wEEaoEaPwnFm4IsGB4Qw4pWPY6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="settings.editor.selected.configurable" value="device.file.explorer" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="FlutterRunConfigurationType" factoryName="Flutter" editBeforeRun="true">
+      <option name="filePath" value="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" editBeforeRun="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/ITAcademy13/03Ago21/flutter01_basicnavigatio/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8630b00b-d7d8-4d6e-a752-ee0f08ebc739" name="Default Changelist" comment="" />
+      <created>1628015413683</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628015413683</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="220" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1628015884357">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="220" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.1053/1920.0.1600.900@72.27.1848.1053" timestamp="1628015884357" />
+    <state x="494" y="345" width="525" height="414" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1628015853726">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="494" y="345" width="525" height="414" key="#com.intellij.ide.util.TreeFileChooserDialog/72.27.1848.1053/1920.0.1600.900@72.27.1848.1053" timestamp="1628015853726" />
+    <state x="254" y="188" key="SettingsEditor" timestamp="1628015927340">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="254" y="188" key="SettingsEditor/72.27.1848.1053/1920.0.1600.900@72.27.1848.1053" timestamp="1628015927340" />
+    <state x="428" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1628015923992">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="428" y="259" width="672" height="678" key="search.everywhere.popup/72.27.1848.1053/1920.0.1600.900@72.27.1848.1053" timestamp="1628015923992" />
+  </component>
+</project>

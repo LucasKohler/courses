@@ -32,9 +32,10 @@ class _HomeState extends State<Home> {
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
-          children: [
+          children: <Widget>[
             // first input field
-            Padding(padding: EdgeInsets.all(16),
+            Padding(
+              padding: EdgeInsets.all(16),
               child: TextField(
                 key: Key('textField1'),
                 decoration: InputDecoration(
@@ -46,7 +47,8 @@ class _HomeState extends State<Home> {
               ),
             ),
             //second input filed
-            Padding(padding: EdgeInsets.all(16),
+            Padding(
+              padding: EdgeInsets.all(16),
               child: TextField(
                 key: Key('textField2'),
                 decoration: InputDecoration(

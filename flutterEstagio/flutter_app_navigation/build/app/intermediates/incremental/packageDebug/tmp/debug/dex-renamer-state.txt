@@ -1,0 +1,4 @@
+#Tue Aug 03 15:40:56 BRT 2021
+base.0=/home/lucaasfodex/Documents/cursos/flutterEstagio/flutter_app_navigation/ITAcademy13/03Ago21/flutter01_basicnavigatio/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
