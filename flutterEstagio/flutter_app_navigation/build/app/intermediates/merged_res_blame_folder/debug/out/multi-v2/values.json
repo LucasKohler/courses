@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/lucaasfodex/Documents/cursos/flutterEstagio/flutter_app_navigation/ITAcademy13/03Ago21/flutter01_basicnavigatio/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/lucaasfodex/Documents/cursos/flutterEstagio/flutter_app_navigation/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
                     "source": "/home/lucaasfodex/.gradle/caches/transforms-2/files-2.1/2e94107f30f39be366a17347c2bf100b/core-1.1.0/res/values/values.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/lucaasfodex/Documents/cursos/flutterEstagio/flutter_app_navigation/ITAcademy13/03Ago21/flutter01_basicnavigatio/android/app/src/main/res/values/styles.xml",
+                    "source": "/home/lucaasfodex/Documents/cursos/flutterEstagio/flutter_app_navigation/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
