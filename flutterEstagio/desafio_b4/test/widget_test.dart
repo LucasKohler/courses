@@ -7,46 +7,26 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_app_b/counterApp.dart';
+import 'package:desafio_b4/adder.dart';
 
+import '../lib/sumApp.dart';
 
 void main() {
-  testWidgets('Counter1 increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(CounterApp());
+  testWidgets('sumApp smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(SumApp());
+    var textField1 = find.byKey(Key('textField1'));
+    var textField2 = find.byKey(Key('textField2'));
 
-    const button1Key= Key('button1');
-    const textButton1Key = Key('textButton1');
+    expect(find.text('0'), findsWidgets);
 
-    var button1Text = find.byKey(textButton1Key).evaluate().single.widget as Text;
-    var button1 = find.byKey(button1Key);
+    await tester.enterText(textField1, '7');
+    await tester.enterText(textField2, '4');
 
-    expect(button1Text.data, '0');
-
-    await tester.tap(button1);
+    await tester.tap(find.byKey(Key('addButton')));
     await tester.pump();
 
-    button1Text = find.byKey(textButton1Key).evaluate().single.widget as Text;
-
-    expect(button1Text.data, '1');
-  });
-
-  testWidgets('Counter2 increments smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(CounterApp());
-
-    const button2Key= Key('button2');
-    const textButton2Key = Key('textButton2');
-
-    var button2Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
-    var button2 = find.byKey(button2Key);
-
-    expect(button2Text.data, '0');
-
-    await tester.tap(button2);
-    await tester.pump();
-
-    button2Text = find.byKey(textButton2Key).evaluate().single.widget as Text;
-
-    expect(button2Text.data, '1');
+    var sumText = find.byKey(Key('addText')).evaluate().single.widget as Text;
+    expect(sumText.data, '11');
   });
 }
-

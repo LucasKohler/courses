@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_b/myHomePage.dart';
+import 'home.dart';
 
-class CounterApp extends StatelessWidget {
+class SumApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -9,7 +9,7 @@ class CounterApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Counter App'),
+      home: Home(title: 'Sum App'),
       debugShowCheckedModeBanner: false,
     );
   }
