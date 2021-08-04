@@ -62,55 +62,59 @@ class _AddContactState extends State<AddContact> {
         child : Form(
           child: SingleChildScrollView(
             child: Column(
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(
-                filled: true,
-                icon: Icon(Icons.person),
-                hintText: 'What do people call you?',
-                labelText: 'Name',
-              ),
-              controller: _name,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    icon: Icon(Icons.person),
+                    hintText: 'What do people call you?',
+                    labelText: 'Name',
+                  ),
+                  controller: _name,
+                ),
+                sizedBoxSpace,
+                TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    icon: Icon(Icons.person_outline),
+                    hintText: 'Gender',
+                    labelText: 'Gender',
+                  ),
+                  controller: _gender,
+                ),
+                sizedBoxSpace,
+                TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  filled: true,
+                  icon: Icon(Icons.phone),
+                  hintText: 'Phone number',
+                  labelText: 'Phone',
+                  ),
+                  controller: _phone,
+                ),
+                sizedBoxSpace,
+                TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    filled: true,
+                    icon: Icon(Icons.email),
+                    hintText: 'Email',
+                    labelText: 'Email',
+                  ),
+                  controller: _email,
+                ),
+                sizedBoxSpace,
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () => _submit(),
+                    child: Text('Submit'),
+                  ),
+                ),
+              ],
             ),
-            sizedBoxSpace,
-            TextFormField(
-              decoration: InputDecoration(
-                filled: true,
-                icon: Icon(Icons.person_outline),
-                hintText: 'Gender',
-                labelText: 'Gender',
-              ),
-              controller: _gender,
-            ),
-            sizedBoxSpace,
-            TextFormField(
-              decoration: InputDecoration(
-                filled: true,
-                icon: Icon(Icons.phone),
-                hintText: 'Phone number',
-                labelText: 'Phone',
-              ),
-              controller: _phone,
-            ),
-            sizedBoxSpace,
-            TextFormField(
-              decoration: InputDecoration(
-                filled: true,
-                icon: Icon(Icons.email),
-                hintText: 'Email',
-                labelText: 'Email',
-              ),
-              controller: _email,
-            ),
-            sizedBoxSpace,
-            Center(
-              child: ElevatedButton(
-                onPressed: () => _submit(),
-                child: Text('Submit'),
-              ),
-            ),
-          ],
-        ),
           ),
         ),
       )

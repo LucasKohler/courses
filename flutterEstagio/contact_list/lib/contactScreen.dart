@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'addContactScreen.dart';
 import 'contact.dart';
@@ -14,7 +16,7 @@ class ContactScreen extends StatelessWidget {
       ),
       body: ContactList(
       contacts: List.generate(
-        1,
+        5,
         (i) => Contact('Ronaldo', Gender.M, '5551999424694','ronaldinho71@gmail.com')
       ),
     ),
@@ -43,31 +45,58 @@ class _ContactListState extends State<ContactList> {
       MaterialPageRoute(builder: (context) => const AddContactScreen()),
     );
 
-    setState((){
-      _contacts.add(contact);
-    });
+    if(contact != null && contact.name.length != 0) {
+      setState(() => _contacts.add(contact));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.separated(
+        body: ListView.builder(
             itemCount: _contacts.length,
-            padding: const EdgeInsets.all(8.0),
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(_contacts[index].name),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailScreen(contact: _contacts[index]),
+              return Column(
+                children: <Widget>[
+                  ListTile(
+                    leading: ExcludeSemantics(
+                      child: CircleAvatar(
+                        child: Text('${_contacts[index].name[0]}'),
+                      ),
                     ),
-                  );
-                },
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete_forever),
+                      color: Colors.red,
+                      onPressed: () => setState(() => _contacts.removeAt(index)),
+                    ),
+                    title: Text(_contacts[index].name),
+                    subtitle: Text(_contacts[index].phone), 
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(contact: _contacts[index]),
+                        )
+                      );
+                    }
+                  ),
+                  Divider(thickness: 1.5, height: 0),
+                ],
               );
+
+            //  return ListTile(
+               // title: Text(_contacts[index].name),
+               // onTap: () {
+               //   Navigator.push(
+               //     context,
+               //     MaterialPageRoute(
+               //       builder: (context) => DetailScreen(contact: _contacts[index]),
+               //     ),
+               //   );
+              //  },
+              //);
             },
-            separatorBuilder: (BuildContext context, int index) => const Divider(thickness: 1.5),
+            //separatorBuilder: (BuildContext context, int index) => const Divider(thickness: 1.5),
         ),
         floatingActionButton: FloatingActionButton(
           tooltip: 'New Contact',
