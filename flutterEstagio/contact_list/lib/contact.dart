@@ -1,4 +1,4 @@
-enum Gender { M, F }
+enum Gender { M, F, O }
 
 class Contact {
   String _name;
@@ -9,7 +9,7 @@ class Contact {
   Contact(this._name, this._gender, this._phone, this._email);
 
   String get name => _name;
-  get gender => _gender.toString();
+  String get gender => _gender.toString();
   String get phone => _phone;
   String get email => _email;
 }

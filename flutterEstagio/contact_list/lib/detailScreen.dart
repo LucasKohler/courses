@@ -7,6 +7,16 @@ class DetailScreen extends StatelessWidget {
   
   final Contact contact;
 
+  String genderToString(String gender){
+    if (gender == 'Gender.M'){
+      return 'Maculino';
+    } else if (gender == 'Gender.F'){
+      return 'Feminino';
+    } else {
+      return 'Outro';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,12 +24,23 @@ class DetailScreen extends StatelessWidget {
         title: Text(contact.name),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            Text(contact.gender),
-            Text(contact.phone),
-            Text(contact.email)
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text(genderToString(contact.gender)),
+            ),
+            Divider(thickness: 1.5),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title: Text(contact.phone)
+            ),
+            Divider(thickness: 1.5),
+            ListTile(
+              leading: Icon(Icons.email),
+              title: Text(contact.email),
+            ),
           ],
         )
       )
