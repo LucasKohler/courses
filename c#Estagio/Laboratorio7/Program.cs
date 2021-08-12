@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Laboratorio7
 {
@@ -41,6 +42,28 @@ namespace Laboratorio7
             {
                 Console.Write(lista2[i].Nome + " ");
             }
+
+            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------");
+            List<Pessoa> pessoas = new List<Pessoa>()
+            {
+                new Pessoa ("Julio", 30),
+                new Pessoa ("Lucia", 25),
+                new Pessoa ("Daniel", 20),
+                new Pessoa ("Julio", 15)
+            };
+            Console.WriteLine("Pessoas:");
+            foreach (Pessoa pessoa in pessoas)
+            {
+                Console.WriteLine(pessoa.Nome + " " + pessoa.Idade);
+            }
+            pessoas.Sort((p1, p2) => p1.Nome.CompareTo(p2.Nome));
+            Console.WriteLine("Pessoas ordenadas:");
+            foreach (Pessoa pessoa in pessoas)
+            {
+                Console.WriteLine(pessoa.Nome + " " + pessoa.Idade);
+            }
+            Console.WriteLine(pessoas.Exists(p => p.Nome == "Julio"));
         }
     }
 }
