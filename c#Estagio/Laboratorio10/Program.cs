@@ -37,16 +37,23 @@ namespace Laboratorio10
             // var linq4 = pessoas.Where(p => p.Casada).Count();
             // Console.WriteLine(linq4);
 
-            var query1 = from p in pessoas
-                         group p by p.Casada into grupoPessoas
-                         select new
-                         {
-                             categoria = grupoPessoas.Key ? "casada" : "solteira",
-                             Pessoas = grupoPessoas.ToList(),
-                             quantidade = grupoPessoas.Count()
-                         };
+            // var query1 = from p in pessoas
+            //              group p by p.Casada into grupoPessoas
+            //              select new
+            //              {
+            //                  categoria = grupoPessoas.Key ? "casada" : "solteira",
+            //                  Pessoas = grupoPessoas.ToList(),
+            //                  quantidade = grupoPessoas.Count()
+            //              };
 
-            foreach (var group in query1)
+            var queryTeste = pessoas.GroupBy(p => p.Casada).Select(group => new
+            {
+                categoria = group.Key ? "casada" : "solteira",
+                Pessoas = group.ToList(),
+                quantidade = group.Count()
+            });
+
+            foreach (var group in queryTeste)
             {
                 Console.WriteLine(group);
                 foreach (var x in group.Pessoas)
@@ -56,9 +63,13 @@ namespace Laboratorio10
             }
 
             var query2 = pessoas.OrderBy(p => p.DataNascimento).First();
-            var query3 = pessoas.OrderBy(p => p.DataNascimento).Last();
+            var query3 = pessoas.OrderBy(p => p.DataNascimento);
             Console.WriteLine(query2);
             Console.WriteLine(query3);
+            foreach (var q in query3)
+            {
+                Console.WriteLine(q);
+            }
         }
     }
 }
