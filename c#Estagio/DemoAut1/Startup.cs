@@ -11,10 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using DemoWsEF1.Models;
+using Okta.AspNetCore;
 
-namespace DemoWsEF1
+namespace DemoAut1
 {
   public class Startup
   {
@@ -28,19 +27,27 @@ namespace DemoWsEF1
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<BdContext>(options =>
-          {
-            var stringConexao = Configuration.GetConnectionString("ConexaoPadrao");
-            options.UseSqlServer(stringConexao);
-            //options.LogTo(Console.WriteLine).EnableSensitiveDataLogging();
-          }
-      );
+      services.AddAuthentication(options =>
+      {
+        options.DefaultAuthenticateScheme = OktaDefaults.ApiAuthenticationScheme;
+        options.DefaultChallengeScheme = OktaDefaults.ApiAuthenticationScheme;
+        options.DefaultSignInScheme = OktaDefaults.ApiAuthenticationScheme;
+      }).AddOktaWebApi(new OktaWebApiOptions()
+      {
+        OktaDomain = Configuration["Okta:OktaDomain"]
+      });
+      services.AddAuthorization();
       services.AddControllers();
       services.AddSwaggerGen(c =>
       {
-        c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoWsEF1", Version = "v1" });
+        c.SwaggerDoc("v1", new OpenApiInfo { Title = "DemoAut1", Version = "v1" });
       });
-
+      services.AddCors(options =>
+      {
+        options.AddPolicy("AllowAll", builder =>
+          builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+        );
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,12 +57,16 @@ namespace DemoWsEF1
       {
         app.UseDeveloperExceptionPage();
         app.UseSwagger();
-        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoWsEF1 v1"));
+        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DemoAut1 v1"));
       }
 
       app.UseHttpsRedirection();
 
       app.UseRouting();
+
+      app.UseCors();
+
+      app.UseAuthentication();
 
       app.UseAuthorization();
 

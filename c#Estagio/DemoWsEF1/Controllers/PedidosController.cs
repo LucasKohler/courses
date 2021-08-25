@@ -25,7 +25,7 @@ namespace DemoWsEF1.Controllers
 
     //POST /pedidos
     [HttpPost]
-    public async Task<ActionResult<PedidoDTO>> ProcessarCarrinho(CarrinhoDTO carrinho) // TODO: Implement
+    public async Task<ActionResult<PedidoDTO>> ProcessarCarrinho(CarrinhoDTO carrinho)
     {
       var pedido = new Pedido();
       pedido.DataEmissao = DateTime.Now;
@@ -37,19 +37,50 @@ namespace DemoWsEF1.Controllers
       pedido.Cliente = cliente;
       if (carrinho.Itens.Count() == 0)
       {
-        return BadRequest("Carrinho Vazio");
+        return BadRequest("Carrinho vazio");
       }
+      pedido.PedidoProdutos = new List<PedidoProduto>();
       foreach (var item in carrinho.Itens)
       {
         var produto = await _database.Produtos.FindAsync(item.CodigoProduto);
         if (produto == null)
         {
-          return BadRequest($"Produto com o gódigo {item.CodigoProduto} não encontrado");
+          return BadRequest($"Produto não encontrado {item.CodigoProduto}");
         }
+        var itemDoPedido = new PedidoProduto();
+        itemDoPedido.Produto = produto;
+        itemDoPedido.Quantidade = item.Quantidade;
+        itemDoPedido.ValorUnitario = produto.Preco;
+        pedido.PedidoProdutos.Add(itemDoPedido);
       }
 
-      // await _database.Pedidos.AddAsync(pedido);
-      // await _database.SaveChangesAsync();
+      await _database.Pedidos.AddAsync(pedido);
+      await _database.SaveChangesAsync();
+
+      return PedidoDTO.FromPedido(pedido);
+    }
+
+    //GET /pedidos?cliente={id}
+    [HttpGet]
+    public async Task<ActionResult<List<PedidoDTO>>> ListarPedidos(int cliente)
+    {
+      //_logger.LogInformation($"Listando pedidos do cliente {cliente}");
+      var clienteAtual = await _database.Clientes.FindAsync(cliente);
+      if (clienteAtual == null)
+      {
+        return BadRequest("Cliente inexistente");
+      }
+
+      //eager load
+      var pedidos = await _database.Pedidos
+        .Include(p => p.Cliente)
+        .Include(p => p.PedidoProdutos)
+        .ThenInclude(pp => pp.Produto)
+        .Where(p => p.ClienteId == cliente)
+        .OrderBy(p => p.DataEmissao)
+        .ToListAsync();
+
+      return pedidos.Select(p => PedidoDTO.FromPedido(p)).ToList();
     }
   }
 }
